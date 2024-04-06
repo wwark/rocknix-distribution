@@ -20,8 +20,7 @@ export CXXFLAGS="${CXXFLAGS} -flto -fipa-pta"
 export LDFLAGS="${LDFLAGS} -flto -fipa-pta"
 
 # unsupported modules
-DISABLED_MODULES+=" --disable-apple2 \
-                   --disable-sasplay \
+DISABLED_MODULES+=" --disable-sasplay \
                     --disable-ssfplay"
 
 case ${DEVICE} in

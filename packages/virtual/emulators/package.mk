@@ -1209,6 +1209,14 @@ makeinstall_target() {
   ### Palm OS
   add_emu_core palm retroarch mu true
   add_es_system palm
+  
+  ### Apple2
+  case ${DEVICE} in
+    RK3399|AMD64|RK3326|RK3588*|RK356*)
+      add_emu_core apple2 mednafen apple2 true
+      add_es_system apple2
+    ;;
+  esac
 
   ### PC Ports
   case ${TARGET_ARCH} in

@@ -9,6 +9,9 @@ FORCE="$(get_setting updates.force)"
 
 ENDPOINT_URL="https://update.rocknix.org"
 
+MACHINEIDFILE=/storage/.cache/systemd-machine-id
+USERID=$(cat ${MACHINEIDFILE})
+
 # Function to check for an update. It returns a URL if an update is available.
 check_update() {
     custom_force="${1:-$FORCE}"
@@ -18,6 +21,9 @@ check_update() {
         -F "ARCH=${HW_ARCH}" \
         -F "SOC=${HW_DEVICE}" \
         -F "VERSION=${OS_VERSION}" \
+        -F "UID=${USERID:(-12)}" \
+        -F "BUILD=${OS_BUILD}" \
+        -F "DEV=${QUIRK_DEVICE}" \
         -F "FORCE=${custom_force}" \
         -F "BRANCH=${BRANCH}" \
         "$ENDPOINT_URL")

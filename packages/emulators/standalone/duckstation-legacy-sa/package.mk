@@ -1,12 +1,12 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2022-present JELOS (https://github.com/JustEnoughLinuxOS)
 
-PKG_NAME="duckstation-sa"
+PKG_NAME="duckstation-legacy-sa"
 PKG_LICENSE="GPLv3"
 PKG_DEPENDS_TARGET="toolchain SDL2 nasm:host pulseaudio openssl libidn2 nghttp2 zlib curl libevdev ecm libzip soundtouch cpuinfo lunasvg"
 PKG_SITE="https://github.com/stenzek/duckstation"
 PKG_URL="${PKG_SITE}.git"
-PKG_VERSION="a45b50c3e996af823d35a6a193458532c4f4316d"
+PKG_VERSION="bfa792ddbff11c102521124f235ccb310cac6e6a"
 PKG_LONGDESC="Fast PlayStation 1 emulator for x86-64/AArch32/AArch64 "
 PKG_TOOLCHAIN="cmake"
 

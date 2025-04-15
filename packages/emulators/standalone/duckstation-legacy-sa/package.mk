@@ -49,6 +49,15 @@ pre_configure_target() {
                            -DUSE_X11=OFF"
 }
 
+install_script() {
+  if [ ! -d "${INSTALL}/usr/config/modules" ]
+  then
+    mkdir -p ${INSTALL}/usr/config/modules
+  fi
+  cp -rf ${PKG_DIR}/sources/"${1}" ${INSTALL}/usr/config/modules
+  chmod 0755 ${INSTALL}/usr/config/modules/"${1}"
+}
+
 makeinstall_target() {
   mkdir -p ${INSTALL}/usr/bin
   cp -rf ${PKG_BUILD}/.${TARGET_NAME}/bin/duckstation-nogui ${INSTALL}/usr/bin
@@ -63,4 +72,6 @@ makeinstall_target() {
   rm -rf ${INSTALL}/usr/config/duckstation/common-tests
 
   chmod +x ${INSTALL}/usr/bin/*
+
+  install_script "Start Duckstation.sh"
 }

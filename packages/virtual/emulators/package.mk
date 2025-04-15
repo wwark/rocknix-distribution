@@ -904,7 +904,6 @@ makeinstall_target() {
   add_emu_core psx retroarch duckstation false
   add_emu_core psx retroarch swanstation false
   add_es_system psx
-  install_script "Start Duckstation.sh"
 
   ### Sony Playstation 2
   case ${DEVICE} in

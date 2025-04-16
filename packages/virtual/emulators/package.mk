@@ -8,7 +8,7 @@ PKG_SECTION="emulation" # Do not change to virtual or makeinstall_target will no
 PKG_LONGDESC="Emulation metapackage."
 PKG_TOOLCHAIN="manual"
 
-PKG_EMUS="amiberry duckstation-sa flycast-sa gzdoom-sa hatarisa hypseus-singe moonlight mupen64plus-sa openbor pico-8 ppsspp-sa vice-sa wine"
+PKG_EMUS="amiberry flycast-sa gzdoom-sa hatarisa hypseus-singe moonlight mupen64plus-sa openbor pico-8 ppsspp-sa vice-sa wine"
 
 PKG_RETROARCH="core-info libretro-database retroarch retroarch-assets retroarch-joypads retroarch-overlays slang-shaders"
 
@@ -29,52 +29,54 @@ LIBRETRO_CORES="81-lr a5200-lr arduous-lr atari800-lr beetle-gba-lr beetle-lynx-
 case "${DEVICE}" in
   AMD64)
     PKG_EMUS+=" cemu-sa dolphin-sa lime3ds-sa mednafen melonds-sa minivmacsa mupen64plus-sa nanoboyadvance-sa pcsx2-sa     \
-               rpcs3-sa scummvmsa vita3k-sa xemu-sa"
+               rpcs3-sa scummvmsa vita3k-sa xemu-sa duckstation-sa"
     LIBRETRO_CORES+=" beetle-psx-lr beetle-saturn-lr bsnes-lr bsnes-hd-lr desmume-lr dolphin-lr flycast-lr lrps2-lr panda3ds-lr play-lr"
   ;;
   RK3588)
     [ "${ENABLE_32BIT}" == "true" ] && EMUS_32BIT="box86 desmume-lr gpsp-lr pcsx_rearmed-lr"
-    PKG_EMUS+=" aethersx2-sa box64 dolphin-sa lime3ds-sa drastic-sa mednafen melonds-sa portmaster scummvmsa supermodel-sa yabasanshiro-sa"
+    PKG_EMUS+=" aethersx2-sa box64 dolphin-sa lime3ds-sa drastic-sa mednafen melonds-sa portmaster scummvmsa supermodel-sa \
+                yabasanshiro-sa duckstation-legacy-sa"
     LIBRETRO_CORES+=" beetle-psx-lr beetle-saturn-lr bsnes-lr bsnes-hd-lr dolphin-lr flycast-lr geolith-lr panda3ds-lr pcsx_rearmed-lr uae4arm"
     PKG_RETROARCH+=" retropie-shaders"
   ;;
   RK3399)
     [ "${ENABLE_32BIT}" == "true" ] && EMUS_32BIT="box86 desmume-lr gpsp-lr pcsx_rearmed-lr"
-    PKG_EMUS+=" aethersx2-sa box64 dolphin-sa drastic-sa mednafen melonds-sa nanoboyadvance-sa portmaster scummvmsa yabasanshiro-sa"
+    PKG_EMUS+=" aethersx2-sa box64 dolphin-sa drastic-sa mednafen melonds-sa nanoboyadvance-sa portmaster scummvmsa \
+                yabasanshiro-sa duckstation-legacy-sa"
     LIBRETRO_CORES+=" beetle-psx-lr bsnes-lr bsnes-hd-lr dolphin-lr geolith-lr flycast-lr pcsx_rearmed-lr uae4arm"
     PKG_RETROARCH+=" retropie-shaders"
   ;;
   RK3566*)
     [ "${ENABLE_32BIT}" == "true" ] && EMUS_32BIT="box86 desmume-lr gpsp-lr pcsx_rearmed-lr"
     PKG_DEPENDS_TARGET+=" common-shaders glsl-shaders"
-    PKG_EMUS+=" box64 dolphin-sa drastic-sa mednafen melonds-sa portmaster scummvmsa yabasanshiro-sa"
+    PKG_EMUS+=" box64 dolphin-sa drastic-sa mednafen melonds-sa portmaster scummvmsa yabasanshiro-sa duckstation-legacy-sa"
     LIBRETRO_CORES+=" dolphin-lr flycast-lr geolith-lr uae4arm"
     PKG_RETROARCH+=" retropie-shaders"
   ;;
   S922X)
     [ "${ENABLE_32BIT}" == "true" ] && EMUS_32BIT="box86 pcsx_rearmed-lr"
-    PKG_EMUS+=" aethersx2-sa box64 dolphin-sa drastic-sa portmaster scummvmsa yabasanshiro-sa"
+    PKG_EMUS+=" aethersx2-sa box64 dolphin-sa drastic-sa portmaster scummvmsa yabasanshiro-sa duckstation-legacy-sa"
     LIBRETRO_CORES+=" beetle-psx-lr beetle-saturn-lr bsnes-lr bsnes-hd-lr dolphin-lr geolith-lr flycast-lr lime3ds-sa uae4arm"
     PKG_RETROARCH+=" retropie-shaders"
   ;;
   RK3326)
     [ "${ENABLE_32BIT}" == "true" ] && EMUS_32BIT="box86 desmume-lr gpsp-lr pcsx_rearmed-lr"
     PKG_DEPENDS_TARGET+=" common-shaders glsl-shaders"
-    PKG_EMUS+=" box64 drastic-sa mednafen portmaster scummvmsa yabasanshiro-sa"
+    PKG_EMUS+=" box64 drastic-sa mednafen portmaster scummvmsa yabasanshiro-sa duckstation-legacy-sa"
     LIBRETRO_CORES+=" flycast-lr flycast2021-lr geolith-lr uae4arm"
     PKG_RETROARCH+=" retropie-shaders"
   ;;
   H700)
     [ "${ENABLE_32BIT}" == "true" ] && EMUS_32BIT="box86 desmume-lr gpsp-lr pcsx_rearmed-lr"
     PKG_DEPENDS_TARGET+=" common-shaders glsl-shaders"
-    PKG_EMUS+=" box64 drastic-sa mednafen portmaster scummvmsa yabasanshiro-sa"
+    PKG_EMUS+=" box64 drastic-sa mednafen portmaster scummvmsa yabasanshiro-sa duckstation-legacy-sa"
     LIBRETRO_CORES+=" flycast-lr flycast2021-lr geolith-lr uae4arm"
     PKG_RETROARCH+=" retropie-shaders"
   ;;
   SM8250|SM8550)
     [ "${ENABLE_32BIT}" == "true" ] && EMUS_32BIT="box86 daedalusx64-sa desmume-lr gpsp-lr pcsx_rearmed-lr"
     PKG_EMUS+=" aethersx2-sa box64 cemu-sa dolphin-sa drastic-sa lime3ds-sa melonds-sa portmaster rpcs3-sa scummvmsa supermodel-sa \
-               yabasanshiro-sa xemu-sa"
+               yabasanshiro-sa xemu-sa duckstation-sa"
     LIBRETRO_CORES+=" beetle-psx-lr beetle-saturn-lr bsnes-lr bsnes-hd-lr dolphin-lr flycast-lr geolith-lr panda3ds-lr pcsx_rearmed-lr uae4arm kronos-lr"
     PKG_RETROARCH+=" retropie-shaders"
   ;;
@@ -902,7 +904,6 @@ makeinstall_target() {
   add_emu_core psx retroarch duckstation false
   add_emu_core psx retroarch swanstation false
   add_es_system psx
-  install_script "Start Duckstation.sh"
 
   ### Sony Playstation 2
   case ${DEVICE} in

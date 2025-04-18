@@ -14,7 +14,7 @@ PKG_RETROARCH="core-info libretro-database retroarch retroarch-assets retroarch-
 
 LIBRETRO_CORES="81-lr a5200-lr arduous-lr atari800-lr beetle-gba-lr beetle-lynx-lr beetle-ngp-lr beetle-pce-lr beetle-pce-fast-lr    \
                 beetle-pcfx-lr bsnes-mercury-accuracy-lr bsnes-mercury-balanced-lr bsnes-mercury-performance-lr beetle-supafaust-lr  \
-                beetle-supergrafx-lr beetle-vb-lr beetle-wswan-lr bluemsx-lr cap32-lr crocods-lr daphne-lr doublecherrygb-lr         \
+                beetle-supergrafx-lr beetle-vb-lr beetle-wswan-lr bluemsx-lr cap32-lr crocods-lr daphne-lr dice-lr doublecherrygb-lr \
                 dosbox-svn-lr dosbox-pure-lr duckstation-lr easyrpg-lr emuscv-lr fake08-lr fbalpha2012-lr                            \
                 fbalpha2019-lr fbneo-lr fceumm-lr flycast2021-lr fmsx-lr freechaf-lr freeintv-lr freej2me-lr fuse-lr gambatte-lr     \
                 gearboy-lr gearcoleco-lr gearsystem-lr genesis-plus-gx-lr genesis-plus-gx-wide-lr gw-lr handy-lr hatari-lr idtech-lr \
@@ -1065,9 +1065,9 @@ makeinstall_target() {
   case ${DEVICE} in
     RK3588*|AMD64)
       add_emu_core st-v mednafen ss true
+      add_es_system st-v
     ;;
   esac
-  add_es_system st-v
 
   ### Sega SG-1000
   add_emu_core sg-1000 retroarch gearsystem true
@@ -1294,6 +1294,10 @@ makeinstall_target() {
   ### Palm OS
   add_emu_core palm retroarch mu true
   add_es_system palm
+  
+  ### DICE
+  add_emu_core dice retroarch dice true
+  add_es_system dice
 
   ### PC Ports
   case ${TARGET_ARCH} in
